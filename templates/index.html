@@ -12,52 +12,67 @@
 <body>
 <div class="container">
     <header>
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Проекты</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Классификатор</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="#">Сметы</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled">Выход</a>
-            </li>
-        </ul>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-projects-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-projects"
+                        type="button" role="tab" aria-controls="nav-projects" aria-selected="true">Проекты
+                </button>
+                <button class="nav-link" id="nav-classificators-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-classificators"
+                        type="button" role="tab" aria-controls="nav-classificators" aria-selected="false">Классификатор
+                </button>
+                <button class="nav-link" id="nav-filters-tab" data-bs-toggle="tab" data-bs-target="#nav-filters"
+                        type="button" role="tab" aria-controls="nav-filters" aria-selected="false">Фильтры
+                </button>
+                <button class="nav-link" id="nav-smets-tab" data-bs-toggle="tab" data-bs-target="#nav-smets"
+                        type="button" role="tab" aria-controls="nav-smets" aria-selected="false">Сметы
+                </button>
+            </div>
+        </nav>
     </header>
-    <H2>{{h2}}</H2>
-    <div class="row m-2">
-        <H3>Получить токен</H3>
-        <div class="row m-2">
-            <div class="col-6">
-                <input id="client_id" value="ltdObTmAiCIQNwCuLeQGFXzV7lJLdIy9" placeholder="CLIENT_ID"/>
-            </div>
-        </div>
-        <div class="row m-2">
-            <div class="col-6">
-                <input id="client_secret" value="" placeholder="CLIENT_SECRET"/>
-            </div>
-        </div>
-        <div class="row m-2">
-            <div class="col-6">
-                <button type="button" id="btn_get_token">Получить токен</button>
-            </div>
-        </div>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-projects" role="tabpanel" aria-labelledby="nav-projects-tab">
+            <div class="row m-2">
+                <H3>Получить токен</H3>
+                <div class="row m-2">
+                    <div class="col-6">
+                        <input id="client_id" value="ltdObTmAiCIQNwCuLeQGFXzV7lJLdIy9" placeholder="CLIENT_ID"/>
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-6">
+                        <input id="client_secret" value="" placeholder="CLIENT_SECRET"/>
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-6">
+                        <button type="button" id="btn_get_token">Получить токен</button>
+                    </div>
+                </div>
 
+            </div>
+
+        </div>
+        <div class="tab-pane fade" id="nav-classificators" role="tabpanel" aria-labelledby="nav-classificators-tab">
+            <p>{{body}}</p>
+            <form>
+                <p>
+                    <label for="fname">Загрузите модель</label>
+                    <input type="file" id="fname" name="fname"/>
+                </p>
+                <p>
+                    <button name="btn_submit" type="submit">Отправить</button>
+                </p>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="nav-filters" role="tabpanel" aria-labelledby="nav-filters-tab">
+            Фильтры
+        </div>
+        <div class="tab-pane fade" id="nav-smets" role="tabpanel" aria-labelledby="nav-smets-tab">
+            Сметы
+        </div>
     </div>
-    <p>{{body}}</p>
-    <form>
-        <p>
-            <label for="fname">Загрузите модель</label>
-            <input type="file" id="fname" name="fname"/>
-        </p>
-        <p>
-            <button name="btn_submit" type="submit">Отправить</button>
-        </p>
-    </form>
 </div>
 <footer>
 
