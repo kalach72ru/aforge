@@ -31,7 +31,7 @@ def autodesk_auth_l2():
     }
     params = {
         'client_id': 'ltdObTmAiCIQNwCuLeQGFXzV7lJLdIy9',
-        'client_secret': 'CZQjy8932uRGvKKS',
+        'client_secret': 'CZQjy8932uRGvKKS9',
         'grant_type': 'client_credentials',
         'scope': 'data:write data:read bucket:create bucket:delete'
     }
