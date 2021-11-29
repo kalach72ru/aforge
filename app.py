@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for
 import requests
+from aforge.secret.config import ClientData
 
 
 autodesk_auth_url = 'https://developer.api.autodesk.com/authentication/v1/authenticate'
@@ -29,9 +30,11 @@ def autodesk_auth_l2():
     headers = {
         'Content-Type': 'application/x-www-form-urlencoded'
     }
+    client_data = ClientData()
+
     params = {
-        'client_id': 'ltdObTmAiCIQNwCuLeQGFXzV7lJLdIy9',
-        'client_secret': 'CZQjy8932uRGvKKS9',
+        'client_id': client_data.get_client_id(),
+        'client_secret': client_data.get_client_secret(),
         'grant_type': 'client_credentials',
         'scope': 'data:write data:read bucket:create bucket:delete'
     }
