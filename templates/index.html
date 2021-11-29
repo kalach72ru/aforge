@@ -14,7 +14,11 @@
     <header>
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-projects-tab" data-bs-toggle="tab"
+                <button class="nav-link active" id="nav-auth-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-auth"
+                        type="button" role="tab" aria-controls="nav-auth" aria-selected="true">Авторизация
+                </button>
+                <button class="nav-link" id="nav-projects-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-projects"
                         type="button" role="tab" aria-controls="nav-projects" aria-selected="true">Проекты
                 </button>
@@ -32,30 +36,37 @@
         </nav>
     </header>
     <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-projects" role="tabpanel" aria-labelledby="nav-projects-tab">
+        <div class="tab-pane fade show active" id="nav-auth" role="tabpanel" aria-labelledby="nav-auth-tab">
             <div class="row m-2">
-                <H3>Получить токен</H3>
+                <H3>Идентификация клиента</H3>
                 <div class="row m-2">
                     <div class="col-6">
-                        <input id="client_id" value="ltdObTmAiCIQNwCuLeQGFXzV7lJLdIy9" placeholder="CLIENT_ID"/>
+                        <label for="access_token">Текущий токен:</label>
+                        <textarea id="access_token" cols="130" rows="9">{{access_token}}</textarea>
                     </div>
                 </div>
                 <div class="row m-2">
                     <div class="col-6">
-                        <input id="client_secret" value="" placeholder="CLIENT_SECRET"/>
-                    </div>
-                </div>
-                <div class="row m-2">
-                    <div class="col-6">
-                        <button type="button" id="btn_get_token">Получить токен</button>
+                        <button type="button" id="btn_update_token">Обновить токен</button>
                     </div>
                 </div>
 
             </div>
 
         </div>
+        <div class="tab-pane fade" id="nav-projects" role="tabpanel" aria-labelledby="nav-projects-tab">
+            <div class="row m-2">
+                <H3>Проекты</H3>
+                <div class="row m-2">
+                </div>
+                <div class="row m-2">
+                </div>
+                <div class="row m-2">
+                </div>
+            </div>
+        </div>
         <div class="tab-pane fade" id="nav-classificators" role="tabpanel" aria-labelledby="nav-classificators-tab">
-            <p>{{body}}</p>
+            <p>Модель</p>
             <form>
                 <p>
                     <label for="fname">Загрузите модель</label>
@@ -73,10 +84,10 @@
             Сметы
         </div>
     </div>
+    <footer>
+        <div id="seconds">0</div>
+    </footer>
 </div>
-<footer>
-
-</footer>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
         crossorigin="anonymous"></script>

@@ -1,8 +1,23 @@
-var btn_get_token = document.getElementById('btn_get_token')
+$('#seconds').text(3599);
+var _Seconds = $('#seconds').text(), int;
+        int = setInterval(function() { // запускаем интервал
+                _Seconds = $('#seconds').text();
+                if (_Seconds > 0) {
+                        _Seconds--; // вычитаем 1
+                        $('#seconds').text(_Seconds); // выводим получившееся значение в блок
+                } else {
+                        clearInterval(int); // очищаем интервал, чтобы он не продолжал работу при _Seconds = 0
+                        alert('End!');
+                }
+        }, 1000);
 
-btn_get_token.onclick = function (){
-        var client_id = document.getElementById('client_id').value
-        // var client_secret = document.getElementById('client_secret').value
-        var client_secret = $('#client_secret').val()
-        alert(client_id+':'+client_secret)
+
+var btn_get_token = document.getElementById('btn_update_token')
+
+btn_update_token.onclick = function (){
+        $.get('/update_token')
+                .done(function(data){
+                        $('#access_token').val(data['access_token'])
+                        $('#seconds').text(data['expires_in'])
+                });
 }
