@@ -1,3 +1,5 @@
+
+//обратный отсчет
 $('#seconds').text(3599);
 var _Seconds = $('#seconds').text(), int;
         int = setInterval(function() { // запускаем интервал
@@ -12,8 +14,8 @@ var _Seconds = $('#seconds').text(), int;
         }, 1000);
 
 
+// кнопка обновления токена        
 var btn_get_token = document.getElementById('btn_update_token')
-
 btn_update_token.onclick = function (){
         $.get('/update_token')
                 .done(function(data){

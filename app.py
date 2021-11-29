@@ -30,7 +30,7 @@ def autodesk_auth_l2():
     headers = {
         'Content-Type': 'application/x-www-form-urlencoded'
     }
-    client_data = ClientData()
+    client_data = ClientData()  # секретные данные в отдельном классе
 
     params = {
         'client_id': client_data.get_client_id(),
