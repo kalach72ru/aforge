@@ -23,3 +23,22 @@ btn_update_token.onclick = function (){
                         $('#seconds').text(data['expires_in'])
                 });
 }
+
+/ кнопка обновления списка backets        
+var btn_get_backets = document.getElementById('btn_get_backets')
+btn_get_backets.onclick = function (){
+        var flickerAPI = "https://developer.api.autodesk.com/oss/v2/buckets";
+        var header = 'Authorization: Bearer ' + '123';
+        $.getJSON( flickerAPI, {
+          tags: "mount rainier",
+          tagmode: "any",
+          format: "json"
+        })
+          .done(function( data ) {
+            $.each( data.items, function( i, item ) {
+              $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
+              if ( i === 3 ) {
+                return false;
+              }
+            });
+          });}
