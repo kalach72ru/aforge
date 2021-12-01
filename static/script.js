@@ -1,3 +1,4 @@
+var current_token = $('#access_token').val();
 
 //обратный отсчет
 $('#seconds').text(3599);
@@ -19,26 +20,26 @@ var btn_get_token = document.getElementById('btn_update_token')
 btn_update_token.onclick = function (){
         $.get('/update_token')
                 .done(function(data){
-                        $('#access_token').val(data['access_token'])
-                        $('#seconds').text(data['expires_in'])
+                        $('#access_token').val(data['access_token']) // покажем новый токен
+                        current_token = data['access_token']   // сохраним новый токен
+                        $('#seconds').text(data['expires_in'])  // обновим счетчик обратного отсчета
                 });
 }
 
-/ кнопка обновления списка backets        
+// кнопка обновления списка backets        
 var btn_get_backets = document.getElementById('btn_get_backets')
 btn_get_backets.onclick = function (){
-        var flickerAPI = "https://developer.api.autodesk.com/oss/v2/buckets";
-        var header = 'Authorization: Bearer ' + '123';
-        $.getJSON( flickerAPI, {
-          tags: "mount rainier",
-          tagmode: "any",
-          format: "json"
-        })
-          .done(function( data ) {
-            $.each( data.items, function( i, item ) {
-              $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
-              if ( i === 3 ) {
-                return false;
-              }
-            });
-          });}
+        var url = "https://developer.api.autodesk.com/oss/v2/buckets";
+        var current_token = $('#access_token').val();
+        var header = 'Authorization: Bearer ' + current_token;
+        $.ajax({
+                dataType: "json",
+                url: url, 
+                headers: {
+                        'Authorization': 'Bearer ' + current_token 
+                },
+          success: function ( data ) {
+                alert(data);
+          }
+        });
+}

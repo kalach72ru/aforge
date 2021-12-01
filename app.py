@@ -36,7 +36,7 @@ def autodesk_auth_l2():
         'client_id': client_data.get_client_id(),
         'client_secret': client_data.get_client_secret(),
         'grant_type': 'client_credentials',
-        'scope': 'data:write data:read bucket:create bucket:delete'
+        'scope': 'data:write data:read bucket:read bucket:create bucket:delete'
     }
     req = requests.post(url, data=params, headers=headers)
     data = req.json()
