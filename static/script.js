@@ -38,8 +38,15 @@ btn_get_backets.onclick = function (){
                 headers: {
                         'Authorization': 'Bearer ' + current_token 
                 },
-          success: function ( data ) {
-                alert(data);
-          }
+                success: function ( data ) {
+                        var div = $('#backets_list').empty()
+                        data['items'].forEach(element => {
+                                div.append("<div class='row'>\
+                                                <div class='col'>"+element['bucketKey']+"</div>\
+                                                <div class='col'>"+element['policyKey']+"</div>\
+                                                <div class='col'>"+element['createdDate']+"</div>\
+                                        </div>")
+                        });
+                }
         });
 }
